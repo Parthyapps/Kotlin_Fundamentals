@@ -15,8 +15,10 @@ It was developed by JetBrains, the same company behind IntelliJ IDEA, Kotlin's p
 - **10.Companion Objects**: Kotlin allows you to define a companion object within a class, which is similar to static methods and fields in Java. Companion objects can access private members of their enclosing class and serve as a replacement for static utility classes.
   
 # Variables and Data Types:
-- Variables are declared using `val` (immutable) or `var` (mutable).
+- Immutable using val keyword
+- Mutable using var keyword
 - Kotlin has various data types such as `Int`, `Long`, `Float`, `Double`, `Boolean`, `Char`, `String`, etc.
+- Scope of a variable – A variable exists only inside the block of code( {………….} ) where it has been declared. You can not access the variable outside the loop. Same variable can be declared inside the nested loop – so if a function contains an argument x and we declare a new variable x inside the same loop, then x inside the loop is different than the argument. Naming Convention – Every variable should be named using lowerCamelCase.
 
 ```kotlin
 val name: String = "Kotlin"
