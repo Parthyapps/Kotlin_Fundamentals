@@ -34,14 +34,42 @@ If you're looking to master Kotlin, here’s a structured overview of the key to
             else -> println("Greater than 10")
         }
 ```
-
-
-
-  
 - Scope of a variable – A variable exists only inside the block of code( {………….} ) where it has been declared. You can not access the variable outside the loop. Same variable can be declared inside the nested loop – so if a function contains an argument x and we declare a new variable x inside the same loop, then x inside the loop is different than the argument. Naming Convention – Every variable should be named using lowerCamelCase.
 
 ```kotlin
 val name: String = "Kotlin"
 var age: Int = 5
 ```
-#
+- Kotlin has various built-in data types such as String, Int, Double, and Boolean for storing different kinds of values.
+# Data Classes and Collections
+- Data classes are used to hold data. They automatically generate useful methods like toString(), equals(), and hashCode().
+
+```kotlin  
+  data class User(val name: String, val age: Int)
+  val user1 = User("Alice", 30)
+  println(user1) // Output: User(name=Alice, age=30)
+ ```
+# Collections
+- Kotlin provides rich collection functions such as filter, map, and reduce for working with data.
+
+```kotlin
+ val numbers = listOf(1, 2, 3, 4, 5)
+val filtered = numbers.filter { it > 2 }
+println(filtered) // Output: [3, 4, 5]
+```
+# Extensions and Infix Functions
+- Extension functions allow you to add new functionality to existing classes without altering their source code.
+```kotlin
+  fun String.addExclamation(): String {
+    return this + "!"
+}
+val excited = "Hello".addExclamation()
+println(excited) // Output: Hello!
+```
+- Infix functions provide a way to call functions in a more natural language style, enhancing readability.
+```kotlin
+  infix fun Int.times(str: String) = str.repeat(this)
+  val result = 2 times "Bye "
+  println(result) // Output: Bye Bye 
+```
+
