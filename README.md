@@ -72,4 +72,84 @@ println(excited) // Output: Hello!
   val result = 2 times "Bye "
   println(result) // Output: Bye Bye 
 ```
+# Sealed Classes
+- Sealed classes restrict class hierarchies to a limited set of subclasses, making them useful for representing state or results.
+  ```kotlin
+  sealed class Result {
+    data class Success(val data: String) : Result()
+    data class Failure(val error: String) : Result()
+  }
+  fun fetchData(): Result {
+      return Result.Success("Data fetched successfully")
+  }
+  when (val result = fetchData()) {
+      is Result.Success -> println(result.data)
+      is Result.Failure -> println(result.error)
+  }
+  ```
+# Higher-Order Functions
+Reusability: The processStudents function can be reused with different filtering and transformation logic.
+Readability: The code becomes more readable and expressive, as the logic is encapsulated within well-defined functions.
+Functional Programming: This approach aligns with functional programming principles, allowing for concise and clear code.
 
+```kotlin
+fun main() {
+    val passingStudents = processStudents(
+        students,
+        { student -> student.grade >= 70 }, // Filter: grades >= 70
+        { student -> "${student.name} (${student.grade})" } // Transform: "Name (Grade)"
+    )
+    println("Passing Students: $passingStudents")
+}
+```
+# Coroutines in Kotlin
+- Coroutines are a Kotlin feature that allows you to write asynchronous, non-blocking code in a simple and readable way.
+- Kotlin coroutines provide a higher-level abstraction for managing background tasks without the complexities of threads or callbacks.
+- coroutines are used to handle tasks like fetching data from the internet or reading from a database on a background thread. By using Dispatchers.Main for UI updates and Dispatchers.IO for network calls, you can ensure that your app is responsive and performs well.
+- Why Use Coroutines?
+  
+In traditional asynchronous programming, you use threads, callbacks, or frameworks like RxJava to perform tasks asynchronously. However, these approaches can lead to:
+
+    Callback Hell: When callbacks are deeply nested.
+    Complex Code: Managing multiple threads can be challenging and error-prone.
+
+Coroutines make asynchronous programming easier by allowing your code to run asynchronously while still being sequential and structured like synchronous code.
+- Suspend Functions:
+    A suspend function is a special type of function that can suspend its execution and resume later. These functions are the building blocks of coroutines
+- Coroutine Builders:
+    Coroutines in Kotlin are created using coroutine builders like launch, async, and runBlocking.
+    launch: Starts a new coroutine but does not return a result.
+    async: Starts a new coroutine and returns a result via a Deferred object, which can be awaited using await().
+    runBlocking: Blocks the current thread until all coroutines inside the block have finished executing. This is mainly used in the main function or for testing.
+- Dispatchers
+   Dispatchers define on which thread a coroutine will run.
+   Dispatchers.Main: Runs on the main thread, typically used for UI updates in Android.
+   Dispatchers.IO: Used for I/O operations (e.g., network calls, database operations).
+   Dispatchers.Default: Used for CPU-intensive tasks.
+   Dispatchers.Unconfined: Runs on the caller thread until suspension.
+- Job
+   A Job represents a coroutine and allows you to manage its lifecycle (e.g., start, cancel, wait for completion).
+   You can cancel a Job to stop the coroutine.
+  ```kotlin
+  fun main() = runBlocking {
+    val job = launch {
+        repeat(1000) { i ->
+            println("Coroutine working: $i")
+            delay(500L)
+        }
+    }
+    delay(1300L)
+    println("Main: I'm tired of waiting!")
+    job.cancel() // Cancels the coroutine
+    println("Main: Job is cancelled.")
+  }
+  Coroutine working: 0
+  Coroutine working: 1
+  Coroutine working: 2
+  Main: I'm tired of waiting!
+  Main: Job is cancelled.
+  ```
+# Advantages of Coroutines
+    Non-blocking: Coroutines make it easy to perform long-running tasks without blocking the main thread.
+    Structured Concurrency: Coroutines respect the scope they are launched in, preventing memory leaks and unnecessary computation.
+    Simplified Async Programming: Writing asynchronous code looks almost the same as writing synchronous code, which makes coroutines more readable than traditional callbacks.
