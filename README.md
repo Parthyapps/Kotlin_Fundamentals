@@ -4,6 +4,20 @@ It was developed by JetBrains, the same company behind IntelliJ IDEA, Kotlin's p
 Kotlin is a modern programming language that is used primarily for Android development but has broader applications as well. 
 If you're looking to master Kotlin, here’s a structured overview of the key topics, from basics to more advanced concepts:
 
+# Kotlin Oops concepts 
+- OOP stands for Object-Oriented Programming.
+
+Procedural programming is about writing procedures or methods that perform operations on the data, while object-oriented programming is about creating objects that contain both data and methods.
+
+Object-oriented programming has several advantages over procedural programming:
+
+    OOP is faster and easier to execute
+    OOP provides a clear structure for the programs
+    OOP helps to keep the Kotlin code DRY "Don't Repeat Yourself", and makes the code easier to maintain, modify and debug
+    OOP makes it possible to create full reusable applications with less code and shorter development time
+
+ - Class:  class is a blueprint for objects having similar properties (The class declaration consists of the class name, class header, and class body enclosed with curly braces.)
+ - Object:  represents the real-life entities, which have states and behavior
 # Kotlin Fundamentals
 - **1.Conciseness**: Kotlin reduces boilerplate code compared to Java. It achieves this through features like type inference, smart casts, data classes, and more.
 - **2.Null Safety**: Kotlin's type system distinguishes between nullable and non-nullable types, helping to eliminate the dreaded NullPointerException. You must explicitly specify when a variable can hold a null value.
