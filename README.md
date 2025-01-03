@@ -16,14 +16,14 @@ Object-oriented programming has several advantages over procedural programming:
     OOP helps to keep the Kotlin code DRY "Don't Repeat Yourself", and makes the code easier to maintain, modify and debug
     OOP makes it possible to create full reusable applications with less code and shorter development time
 
-  1. Class and Object
+1.Class and Object
     Concept: A class is a blueprint for creating objects, and an object is an instance of a class.
     Object:  represents the real-life entities, which have states and behavior
-  2. Inheritance
+2.Inheritance
     Concept: A class can inherit properties and methods from another class (parent class).
-  3. Encapsulation
+3.Encapsulation
     Concept: Restricting direct access to class properties and methods, typically using access modifiers.
-  4. Abstraction
+4.Abstraction
     Concept: Hiding implementation details and exposing only the necessary functionality through abstract classes or interfaces.
 
 # Kotlin Fundamentals
